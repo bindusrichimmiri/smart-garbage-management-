@@ -1,0 +1,59 @@
+#include<ESP8266WiFi.h> 
+#include<BlynkSimpleEsp8266.>
+#include<ultrasonic.h>
+#include<servo.h>
+Servo servo;
+Ultrasonic U1(D0,D1);
+Ultrasonic U2(D7,D8);
+char auth[ ]=(“q5b5-HfptcMkvN298NKZ22NpBZSHc”); 
+char said[ ]=(“hello”);
+char pass[ ]=(“123456789”); 
+int ir=D3;
+int led=D6;
+int buzzer=D4;
+int mot=A0;
+void setup(){
+Serial.begin(9600); 
+Blynk.begin(auth,said,pass);
+servo.attach(D2);
+pinMode(ir, INPUT);
+pinMode (mot, INPUT); 
+pinMode(led,OUTPUT);
+pinMode(buzzer,OUTPUT); 
+serial.println(“wifi connected”); 
+void loop() {
+int i=u1.read();
+int j=u2.read();
+int k=digital Read(ir); 
+intl=analogRead(mot); 
+serial.print(“u1distance”);
+serial.println(i);
+serial.print(“U2 distance”); 
+serial.println(j);
+serial.println(k);
+serial print(“mot:”);
+serial.println(l); 
+if((k=0)&&(I>6||j>6))
+digital Write(led,1);
+servo.write(90);
+delay (1000); 
+digital Write (led,0); 
+servo.write(0);
+serial.println(“hello”);
+if (l<1000)
+{
+
+digitalWrite(led,1); 
+digitalWrite(buzzer,1);
+serial.println(”hiii”); 
+delay(1000);
+digital Write (led,0);
+digital Write(buzzer,0);
+digital Write (led,0); 
+blynk virtual Write (v1,i);
+blynk virtual Write (v2,j);
+blynk.run();
+ 
+}
+}
+} 
